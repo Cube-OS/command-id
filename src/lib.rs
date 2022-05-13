@@ -32,7 +32,7 @@ macro_rules! command_id{
         impl TryFrom<u16> for CommandID {
             type Error = CubeOSError;
 
-            fn try_from(cmd: u16) -> Result<Self,Self::Error> {
+            fn try_from(cmd: u16) -> CubeOSResult<Self> {
                 let mut i: usize = 0;
                 let h_field: Vec<u16> = (1..1+CommandID::VARIANT_COUNT as u16).collect();
                 match cmd {
@@ -46,7 +46,7 @@ macro_rules! command_id{
         impl TryFrom<CommandID> for u16 {
             type Error = CubeOSError;
 
-            fn try_from(c: CommandID) -> Result<u16,Self::Error> {
+            fn try_from(c: CommandID) -> CubeOSResult<u16> {
                 let mut i: usize = 0;
                 let h_field: Vec<u16> = (1..1+CommandID::VARIANT_COUNT as u16).collect();
                 match c {
