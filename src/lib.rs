@@ -12,6 +12,7 @@ macro_rules! command_id{
         use cubeos_error::{Error as CubeOSError, Result as CubeOSResult};
         use std::ops::AddAssign;
         use std::fmt;
+        use serde::Serialize;
 
         // helper functions to implement the TryFrom<u16> for udp and ground macros
         // increments a usize and outputs the value
@@ -22,7 +23,7 @@ macro_rules! command_id{
         }
 
         // Construct CommandID Enum
-        #[derive(Clone,Copy,Debug,PartialEq,VariantCount)]
+        #[derive(Clone,Copy,Debug,PartialEq,VariantCount,Serialize)]
         pub enum CommandID {
             $(
                 $type,
