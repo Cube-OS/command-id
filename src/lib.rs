@@ -1,3 +1,7 @@
+// 
+// (C) 2022 Cube-OS  
+// 
+
 // mod command_id;
 pub use ::variant_count;
 pub use ::cubeos_error;
